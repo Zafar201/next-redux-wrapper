@@ -18,7 +18,7 @@ const Home = () => {
      console.log(Data,'hey');
   },[])
   const dispatch = useDispatch();
-  const Data = useSelector((state) => state.userReducer.products);
+  const Data = useSelector((state) => state.productReducer.products);
 
 
   return (

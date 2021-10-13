@@ -2,7 +2,7 @@ const initialState = {
   products:null
    };
    
-   export const userReducer = (state = initialState, action) => {
+   export const productReducer = (state = initialState, action) => {
      switch (action.type) {
       case "FETCH_ALL_PRODUCTS":
         return {
