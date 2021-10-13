@@ -1,21 +1,14 @@
 const initialState = {
-    users:null
+  products:null
    };
    
    export const userReducer = (state = initialState, action) => {
      switch (action.type) {
-      case "FETCH_ALL_USER":
+      case "FETCH_ALL_PRODUCTS":
         return {
             ...state,
-            users: [...action.payload.data]
+            products: [...action.payload.data]
         };
-      // case "ADD_USER":
-      //   console.log(action.payload)
-      //   return {
-      //       ...state,
-      //       users: [action.payload,...state.users]
-      //   };
-
        default:
          return state;
      }

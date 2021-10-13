@@ -1,26 +1,26 @@
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, fetchAllUser } from "../redux/action";
+import { fetchAllProducts } from "../redux/action";
 import styles from "../styles/Home.module.css";
 import { wrapper } from "../redux/store";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async ({ store }) => {
     const dispatch = store.dispatch;
-    await dispatch(await fetchAllUser());
+    await dispatch(await fetchAllProducts());
   }
 );
  
 const Home = () => {
   useEffect(()=>{
-    dispatch(fetchAllUser())
-     console.log(Users,'hey');
+    dispatch(fetchAllProducts())
+     console.log(Data,'hey');
   },[])
   const dispatch = useDispatch();
-  const Users = useSelector((state) => state.userReducer.users);
+  const Data = useSelector((state) => state.userReducer.products);
 
-  const [name,setName] = useState("")
+
 
 
 
@@ -33,10 +33,12 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        {Users.map((data) => (
+        {Data.map((dat) => (
           <>
-          <p className='para' key={data.id}>{data.title}</p>
-          <img src={data.image}/>
+           <p key={dat.id}>{dat.id}</p>
+          <p >{dat.title}</p>
+         
+          <img src={dat.image}/>
           </>
         ))}
         
